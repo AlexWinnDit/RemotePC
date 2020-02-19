@@ -5,14 +5,14 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 
 public class Client {
-    static String port = "4907";
+    private static String port = "4907";
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String ip = JOptionPane.showInputDialog("Please enter server ip");
         new Client().initialize(ip, Integer.parseInt(port));
     }
 
-    public void initialize(String ip, int port) {
+    private void initialize(String ip, int port) {
         try {
 
             Socket sc = new Socket(ip, port);

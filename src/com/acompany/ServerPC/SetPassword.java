@@ -5,55 +5,52 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class SetPassword extends JFrame implements ActionListener{
-	static String port="4907";
-	JButton SUBMIT;
-	JPanel panel;
-	JLabel label1,label2;
-	JTextField text1,text2;
-	String value1;
-	String value2;
-	JLabel label;
-	
-   SetPassword(){
-	   label1=new JLabel();
-		label1.setText("Set Password");
-		text1 = new JTextField(15);
-		
-		label=new JLabel();
-		label.setText("");
-		
-		
-		this.setLayout(new BorderLayout());
-		
-		SUBMIT = new JButton("SUBMIT");
+public class SetPassword extends JFrame implements ActionListener {
+    private static String port = "4907";
+    private JButton SUBMIT;
+    private JPanel panel;
+    private JLabel label1, label2;
+    private JTextField text1, text2;
+    private String value1;
+    private JLabel label;
 
-		panel=new JPanel(new GridLayout(2,1));
-		panel.add(label1);
-		panel.add(text1);
-		
-		panel.add(label);
-		panel.add(SUBMIT);
-		add(panel,BorderLayout.CENTER);
-		SUBMIT.addActionListener(this);
-		setTitle("Set Password to connect to the Client");
-	
-	}
-	
-	public void actionPerformed(ActionEvent ae){
+    SetPassword() {
+        label1 = new JLabel();
+        label1.setText("Set Password");
+        text1 = new JTextField(15);
+
+        label = new JLabel();
+        label.setText("");
 
 
-		value1=text1.getText();
-		dispose();
-		new Connection(Integer.parseInt(port),value1);
-	}
-	
-	public String getValue1(){
+        this.setLayout(new BorderLayout());
 
-		return value1;
-	}
-	
+        SUBMIT = new JButton("SUBMIT");
 
+        panel = new JPanel(new GridLayout(2, 1));
+        panel.add(label1);
+        panel.add(text1);
+
+        panel.add(label);
+        panel.add(SUBMIT);
+        add(panel, BorderLayout.CENTER);
+        SUBMIT.addActionListener(this);
+        setTitle("Set Password to connect to the Client");
+
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+
+
+        value1 = text1.getText();
+        dispose();
+        new Connection(Integer.parseInt(port), value1);
+    }
+
+    public String getValue1() {
+
+        return value1;
+    }
 
 
 }
