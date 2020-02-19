@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RemotePC(Alfa 0.1):jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RemotePC_Alfa_0_1__jar</output-path>
+    <root id="archive" name="RemotePC(Alfa 0.1).jar">
+      <element id="module-output" name="RemotePC(Alfa 0.1)" />
+    </root>
+  </artifact>
+</component>
