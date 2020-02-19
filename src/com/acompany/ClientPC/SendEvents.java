@@ -16,6 +16,7 @@ class SendEvents implements KeyListener, MouseMotionListener, MouseListener {
     private JPanel cPanel = null;
     private PrintWriter writer = null;
     private String width = "", height = "";
+
     private double w;
     private double h;
 
