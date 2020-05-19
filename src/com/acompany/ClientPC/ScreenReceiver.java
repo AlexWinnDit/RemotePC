@@ -1,22 +1,19 @@
 package com.acompany.ClientPC;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ObjectInputStream;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
-class ReceiveScreen extends Thread {
-    private ObjectInputStream cObjectInputStream = null;
+class ScreenReceiver extends Thread {
     private JPanel cPanel = null;
     private boolean continueLoop = true;
     private InputStream oin = null;
     private Image image1 = null;
 
-    public ReceiveScreen(InputStream in, JPanel p) {
+    public ScreenReceiver(InputStream in, JPanel p) {
         oin = in;
         cPanel = p;
         start();

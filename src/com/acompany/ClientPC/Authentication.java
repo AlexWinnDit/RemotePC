@@ -1,20 +1,15 @@
 package com.acompany.ClientPC;
 
 import javax.swing.*;
-
 import java.awt.*;
-
-import java.awt.event.*;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.DataInputStream;
-
 import java.io.DataOutputStream;
-
 import java.io.IOException;
-
 import java.net.Socket;
 
-class Authenticate extends JFrame implements ActionListener {
+class Authentication extends JFrame implements ActionListener {
     private Socket cSocket = null;
     private DataOutputStream psswrchk = null;
     private DataInputStream verification = null;
@@ -25,7 +20,7 @@ class Authenticate extends JFrame implements ActionListener {
     private String width = "", height = "";
     private final JTextField text1;
 
-    Authenticate(Socket cSocket) {
+    Authentication(Socket cSocket) {
         label1 = new JLabel();
         label1.setText("Password");
         text1 = new JTextField(15);
@@ -71,7 +66,7 @@ class Authenticate extends JFrame implements ActionListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            CreateFrame abc = new CreateFrame(cSocket, width, height);
+            Frame abc = new Frame(cSocket, width, height);
             dispose();
         } else {
             System.out.println("enter the valid password");

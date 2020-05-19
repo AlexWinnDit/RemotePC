@@ -1,25 +1,17 @@
 package com.acompany.ServerPC;
 
-import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.GraphicsDevice;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import javax.swing.*;
 
 public class Connection {
 
-    ServerSocket socket = null;
-    DataInputStream password = null;
-    DataOutputStream verify = null;
-    String width = "";
-    String height = "";
+    private ServerSocket socket = null;
+    private DataInputStream password = null;
+    private DataOutputStream verify = null;
+
 
     Connection(int port, String value1) {
         Robot robot = null;
@@ -43,15 +35,15 @@ public class Connection {
                 Socket sc = socket.accept();
                 password = new DataInputStream(sc.getInputStream());
                 verify = new DataOutputStream(sc.getOutputStream());
-                //String username=password.readUTF();
+
                 String pssword = password.readUTF();
 
                 if (pssword.equals(value1)) {
                     verify.writeUTF("valid");
                     verify.writeUTF(width);
                     verify.writeUTF(height);
-                    new SendScreen(sc, robot, rectangle);
-                    new ReceiveEvents(sc, robot);
+                    new ScreenSender(sc, robot, rectangle);
+                    new EventHandler(sc, robot);
                 } else {
                     verify.writeUTF("Invalid");
                 }

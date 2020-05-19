@@ -4,14 +4,14 @@ import java.awt.Robot;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
-/* Used to recieve server commands then execute them at the client side*/
 
-class ReceiveEvents extends Thread {
-    Socket socket = null;
-    Robot robot = null;
-    boolean continueLoop = true;
 
-    public ReceiveEvents(Socket socket, Robot robot) {
+class EventHandler extends Thread {
+    private Socket socket = null;
+    private Robot robot = null;
+    private boolean continueLoop = true;
+
+    public EventHandler(Socket socket, Robot robot) {
 
         this.socket = socket;
         this.robot = robot;
@@ -49,9 +49,9 @@ class ReceiveEvents extends Thread {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }//end function
+    }
 
-}//end class
+}
 
 
 

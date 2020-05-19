@@ -1,17 +1,13 @@
 package com.acompany.ClientPC;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import javax.swing.*;
+import java.awt.event.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import javax.swing.JPanel;
 
 
-class SendEvents implements KeyListener, MouseMotionListener, MouseListener {
+class EventHandler implements KeyListener, MouseMotionListener, MouseListener {
     private Socket cSocket = null;
     private JPanel cPanel = null;
     private PrintWriter writer = null;
@@ -20,7 +16,7 @@ class SendEvents implements KeyListener, MouseMotionListener, MouseListener {
     private double w;
     private double h;
 
-    SendEvents(Socket s, JPanel p, String width, String height) {
+    EventHandler(Socket s, JPanel p, String width, String height) {
         cSocket = s;
         cPanel = p;
         this.width = width;

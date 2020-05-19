@@ -9,16 +9,16 @@ import java.net.Socket;
 import javax.imageio.ImageIO;
 
 
-class SendScreen extends Thread {
+class ScreenSender extends Thread {
 
-    Socket socket = null;
-    Robot robot = null;
-    Rectangle rectangle = null;
-    boolean continueLoop = true;
+    private Socket socket = null;
+    private Robot robot = null;
+    private Rectangle rectangle = null;
+    private boolean continueLoop = true;
 
     OutputStream oos = null;
 
-    public SendScreen(Socket socket, Robot robot, Rectangle rect) {
+    public ScreenSender(Socket socket, Robot robot, Rectangle rect) {
         this.socket = socket;
         this.robot = robot;
         rectangle = rect;

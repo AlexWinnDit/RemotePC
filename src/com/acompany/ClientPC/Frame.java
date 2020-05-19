@@ -1,18 +1,15 @@
 package com.acompany.ClientPC;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import java.util.zip.*;
 
-import java.io.IOException;
-
-class CreateFrame extends Thread {
+class Frame extends Thread {
     String width = "", height = "";
     private JFrame frame = new JFrame();
 
@@ -23,7 +20,7 @@ class CreateFrame extends Thread {
     private JInternalFrame interFrame = new JInternalFrame("Server Screen", true, true, true);
     private JPanel cPanel = new JPanel();
 
-    public CreateFrame(Socket cSocket, String width, String height) {
+    public Frame(Socket cSocket, String width, String height) {
 
         this.width = width;
         this.height = height;
@@ -72,8 +69,16 @@ class CreateFrame extends Thread {
         }
 
         //Client receiving screenshots
-        new ReceiveScreen(in, cPanel);
+        new ScreenReceiver(in, cPanel);
         //Client sending events to the client
-        new SendEvents(cSocket, cPanel, width, height);
+        new EventHandler(cSocket, cPanel, width, height);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
     }
+
+
 }

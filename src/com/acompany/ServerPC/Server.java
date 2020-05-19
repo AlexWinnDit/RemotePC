@@ -1,12 +1,14 @@
 package com.acompany.ServerPC;
 
-import com.acompany.ServerPC.SetPassword;
+import javax.swing.*;
 
 public class Server {
     public static void main(String[] args) {
-        SetPassword frame1 = new SetPassword();
+        Security frame1 = new Security();
         frame1.setSize(300, 80);
         frame1.setLocation(500, 300);
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame1.setVisible(true);
+
     }
 }

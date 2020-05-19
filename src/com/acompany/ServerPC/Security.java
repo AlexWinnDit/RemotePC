@@ -1,11 +1,11 @@
 package com.acompany.ServerPC;
 
 import javax.swing.*;
-
-import java.awt.event.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SetPassword extends JFrame implements ActionListener {
+public class Security extends JFrame implements ActionListener {
     private static String port = "4907";
     private JButton SUBMIT;
     private JPanel panel;
@@ -14,7 +14,7 @@ public class SetPassword extends JFrame implements ActionListener {
     private String value1;
     private JLabel label;
 
-    SetPassword() {
+    Security() {
         label1 = new JLabel();
         label1.setText("Set Password");
         text1 = new JTextField(15);

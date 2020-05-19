@@ -1,8 +1,7 @@
 package com.acompany.ClientPC;
 
+import javax.swing.*;
 import java.net.Socket;
-
-import javax.swing.JOptionPane;
 
 public class Client {
     private static String port = "4907";
@@ -17,11 +16,12 @@ public class Client {
 
             Socket sc = new Socket(ip, port);
             System.out.println("Connecting to the Server");
-            //Authenticate class is responsible for security purposes
-            Authenticate frame1 = new Authenticate(sc);
+            //Authentication class is responsible for security purposes
+            Authentication frame1 = new Authentication(sc);
 
             frame1.setSize(300, 80);
             frame1.setLocation(500, 300);
+            frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame1.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
